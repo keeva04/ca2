@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Neon Outlaws</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Afacad&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<section class="hero">
+<script>
+  window.onload = function() {
+    const isSubscribed = localStorage.getItem('subscribed');
+    
+    // Disable the Bounty Board link if not subscribed
+    if (isSubscribed !== 'true') {
+      const bountyLink = document.getElementById('bountyLink');
+      bountyLink.style.pointerEvents = 'none'; // Disable clicking
+      bountyLink.style.color = '#ccc'; // Change color to indicate it's disabled
+    }
+  };
+</script><header>
+      <a href="index.html" class="bookmark">
+        <img src="images/logo.png" alt="Logo">
+      </a>
+
+      <div class="nav-container">
+        <nav class="site-nav">
+          <ul>
+            <li><a href="synopsis.html">Synopsis</a></li>
+            <li><a href="bountyboard.html" id="bountyLink">Bounty Board</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero-content">
+      <h1>Neon Outlaws</h1>
+      <div class="hero-buttons">
+        <a href="#trailer" class="watch-btn">Watch Trailer</a>
+        <a href="#buy" class="buy-btn">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="join-outlaws">
+    <div class="join-header-wrapper">
+      <div class="line"></div>
+      <h2 class="join-header">Join the Outlaws!</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="subscribe-container">
+      <h3>Subscribe:</h3>
+      <p class="subscribe-desc">Unlock the Bounty Board and get the latest updates from the Outlaws.</p>
+      <form class="subscribe-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">Join</button>
+      </form>
+    </div>
+  </section>
+
+<section class="synopsis-section">
+  <div class="synopsis-content">
+    <div class="synopsis-text-wrapper">
+      <h2 class="synopsis-header">SYNOPSIS</h2>
+      <p class="synopsis-text">
+        In a world where the neon lights never fade, a rogue group of cybernetic outlaws dares to challenge a corrupted regime. Follow Boone Marston and the crew as they unlock the secrets of a fractured digital world.
+      </p>
+      <a href="synopsis.html" class="learn-more-button">Learn More</a> 
+    </div>
+    <img src="images/synopsis.jpg" alt="Boone Marston" class="synopsis-image">
+  </div>
+</section>
+
+<section class="cast-section">
+  <div class="cast-content">
+    <img src="images/image.jpg" alt="Cast Image" class="cast-image">
+    <div class="cast-text-wrapper">
+      <h2 class="cast-header">CAST</h2>
+      <p class="cast-text">
+        Meet the renegades behind Neon Outlaws — a crew of hackers, smugglers, and freedom fighters brought to life by an electrifying cast.
+      </p>
+      <a href="synopsis.html#wantedposters" class="learn-more-button">Meet the Outlaws</a> 
+    </div>
+  </div>
+</section>
+
+<section class="synopsis-section">
+  <div class="synopsis-content">
+    <div class="synopsis-text-wrapper">
+      <h2 class="synopsis-header">GALLERY</h2>
+      <p class="synopsis-text">
+        Explore snapshots from the neon frontier. Dive into behind-the-scenes moments, character designs, and vivid landscapes from the world of Neon Outlaws.
+      </p>
+      <a href="gallery.html" class="learn-more-button">See the World</a> 
+    </div>
+    <img src="images/gallery.jpg" alt="Gallery Preview" class="synopsis-image">
+  </div>
+</section>
+
+  <section class="footer">
+    <div class="line-footer"></div>
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@neonoutlaws" class="social-icon">
+          <img src="images/tiktok.png" alt="TikTok" class="social-logo">
+        </a>
+        <a href="https://www.youtube.com/c/NeonOutlaws" class="social-icon">
+          <img src="images/yt.png" alt="YouTube" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/neonoutlaws" class="social-icon">
+          <img src="images/facebook.png" alt="Instagram" class="social-logo">
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-left">© 2025 Neon Outlaws Productions. All rights reserved.</p>
+        <p class="footer-right">For inquiries contact us at: <a href="mailto:contact@neonoutlaws.com" class="footer-email">contact@neonoutlaws.com</a></p>
+      </div> 
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // Listen for form submission
+    document.querySelectorAll('.subscribe-form').forEach(form => {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page reload
+
+        // Get the email value (optional)
+	document.querySelectorAll('.subscribe-form').forEach(form => {
+	  form.addEventListener('submit', function(event) {
+		event.preventDefault(); // Prevent page reload
+	document.querySelectorAll('.subscribe-form').forEach(form => {
+	  form.addEventListener('submit', function(event) {
+		event.preventDefault(); // Prevent page reload
+
+    const email = form.querySelector('input[type="email"]').value;
+
+    if (email) {
+      // Save subscription status to localStorage
+      localStorage.setItem('subscribed', 'true');
+      localStorage.setItem('userEmail', email);
+
+      alert('Thank you for subscribing! You now have access to the Bounty Board.');
+
+      // Redirect to the Bounty Board page
+      window.location.href = 'bountyboard.html';
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
+});
+document.querySelectorAll('.subscribe-form').forEach(form => {
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const email = form.querySelector('input[type="email"]').value;
+
+      if (email) {
+        // Save subscription status to localStorage
+        localStorage.setItem('subscribed', 'true');
+        localStorage.setItem('userEmail', email);
+
+        alert('Thank you for subscribing! You now have access to the Bounty Board.');
+
+        // Redirect to the Bounty Board page or show it if on the same page
+        window.location.href = 'bountyboard.html'; // or location.reload(); if on the same page
+      } else {
+        alert('Please enter a valid email address.');
+      }
+    });
+  }); event.preventDefault(); // Prevent page reload
+
+    const email = form.querySelector('input[type="email"]').value;
+
+    if (email) {
+      // Save subscription status to localStorage
+      localStorage.setItem('subscribed', 'true');
+      localStorage.setItem('userEmail', email);
+
+      alert('Thank you for subscribing! You now have access to the Bounty Board.');
+
+      // Redirect to the Bounty Board page
+      window.location.href = 'bountyboard.html';
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
+});
+        const email = form.querySelector('input[type="email"]').value;
+
+        // Check if email is entered
+        if (email) {
+          // Save subscription status to localStorage
+          localStorage.setItem('subscribed', 'true');
+          
+          // Optionally save the email
+          localStorage.setItem('userEmail', email);
+
+          // Inform the user
+          alert('Thank you for subscribing! You now have access to the Bounty Board.');
+
+          // Redirect to the Bounty Board page
+          window.location.href = 'bountyboard.html';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Afacad&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script>
+  window.onload = function() {
+    const isSubscribed = localStorage.getItem('subscribed');
+    
+    // Disable the Bounty Board link if not subscribed
+    if (isSubscribed !== 'true') {
+      const bountyLink = document.getElementById('bountyLink');
+      bountyLink.style.pointerEvents = 'none'; // Disable clicking
+      bountyLink.style.color = '#ccc'; // Change color to indicate it's disabled
+    }
+  };
+</script>
+  <!-- Header -->
+  <section class="hero-gallery">
+    <header>
+      <a href="index.html" class="bookmark">
+        <img src="images/logo.png" alt="Logo">
+      </a>
+
+      <div class="nav-container">
+        <nav class="site-nav">
+          <ul>
+            <li><a href="synopsis.html">Synopsis</a></li>
+            <li><a href="bountyboard.html" id="bountyLink">Bounty Board</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </section> 
+
+<section class="gallery">
+  <!-- Concept Art Section -->
+  <section id="concept-art" class="gallery-section">
+    <h2 class="section-header" style="color: #FF3CC7;">Concept Art</h2>
+    <div class="image-grid" id="concept-art-grid">
+      <!-- 6 visible images -->
+      <img src="images/concept1.jpg" alt="Concept Art 1">
+      <img src="images/concept2.jpg" alt="Concept Art 2">
+      <img src="images/concept3.jpg" alt="Concept Art 3">
+      <img src="images/concept4.jpg" alt="Concept Art 4">
+      <img src="images/concept5.jpg" alt="Concept Art 5">
+      <img src="images/concept6.jpg" alt="Concept Art 6">
+      
+      <!-- 3 hidden images -->
+      <img src="images/concept7.jpg" alt="Concept Art 7" class="hidden-image">
+      <img src="images/concept8.jpg" alt="Concept Art 8" class="hidden-image">
+      <img src="images/concept9.jpg" alt="Concept Art 9" class="hidden-image">
+    </div>
+    <button class="show-more-btn" id="concept-art-btn">Show More</button>
+  </section>
+
+  <!-- Behind-The-Scenes Section -->
+  <section id="behind-the-scenes" class="gallery-section">
+    <h2 class="section-header" style="color: white;">Behind-The-Scenes</h2>
+    <div class="image-grid" id="bts-grid">
+      <!-- 6 visible images -->
+      <img src="images/bts1.jpg" alt="Behind The Scenes 1">
+      <img src="images/bts2.jpg" alt="Behind The Scenes 2">
+      <img src="images/bts3.jpg" alt="Behind The Scenes 3">
+      <img src="images/bts4.jpg" alt="Behind The Scenes 4">
+      <img src="images/bts5.jpg" alt="Behind The Scenes 5">
+      <img src="images/bts6.jpg" alt="Behind The Scenes 6">
+      
+      <!-- 3 hidden images -->
+      <img src="images/bts7.jpg" alt="Behind The Scenes 7" class="hidden-image">
+      <img src="images/bts8.jpg" alt="Behind The Scenes 8" class="hidden-image">
+      <img src="images/bts9.jpg" alt="Behind The Scenes 9" class="hidden-image">
+    </div>
+    <button class="show-more-btn" id="bts-btn">Show More</button>
+  </section>
+</section>
+  <!-- Footer -->
+  <section class="footer">
+    <div class="line-footer"></div>
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@neonoutlaws" class="social-icon">
+          <img src="images/tiktok.png" alt="TikTok" class="social-logo">
+        </a>
+        <a href="https://www.youtube.com/c/NeonOutlaws" class="social-icon">
+          <img src="images/yt.png" alt="YouTube" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/neonoutlaws" class="social-icon">
+          <img src="images/facebook.png" alt="Facebook" class="social-logo">
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-left">© 2025 Neon Outlaws Productions. All rights reserved.</p>
+        <p class="footer-right">For inquiries contact us at: 
+          <a href="mailto:contact@neonoutlaws.com" class="footer-email">contact@neonoutlaws.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // Function to handle show/hide logic for sections
+    function setupShowMoreButton(buttonId, gridId) {
+      const button = document.getElementById(buttonId);
+      const hiddenImages = document.querySelectorAll(`#${gridId} .hidden-image`);
+
+      button.addEventListener('click', function() {
+        const isHidden = hiddenImages[0].style.display === 'none' || hiddenImages[0].style.display === '';
+        hiddenImages.forEach(img => img.style.display = isHidden ? 'block' : 'none');
+        this.textContent = isHidden ? 'Show Less' : 'Show More';
+      });
+    }
+
+    // Set up both buttons
+    setupShowMoreButton('concept-art-btn', 'concept-art-grid');
+    setupShowMoreButton('bts-btn', 'bts-grid');
+	  
+	  
+document.querySelectorAll('.subscribe-form').forEach(form => {
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    const email = form.querySelector('input[type="email"]').value;
+
+    if (email) {
+      // Save subscription status to localStorage
+      localStorage.setItem('subscribed', 'true');
+      localStorage.setItem('userEmail', email);
+
+      alert('Thank you for subscribing! You now have access to the Bounty Board.');
+
+      // Redirect to the Bounty Board page
+      window.location.href = 'bountyboard.html';
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
+});
+
+
+  </script>
+
+</body>
+</html>

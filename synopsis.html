@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Synopsis</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Afacad&display=swap" rel="stylesheet">
+</head>
+
+
+<body class="page-synopsis">
+
+<script>
+  window.onload = function() {
+    const isSubscribed = localStorage.getItem('subscribed');
+    
+    // Disable the Bounty Board link if not subscribed
+    if (isSubscribed !== 'true') {
+      const bountyLink = document.getElementById('bountyLink');
+      bountyLink.style.pointerEvents = 'none'; // Disable clicking
+      bountyLink.style.color = '#ccc'; // Change color to indicate it's disabled
+    }
+  };
+</script>
+
+  <section class="hero-synopsis">
+    <header>
+      <a href="index.html" class="bookmark">
+        <img src="images/logo.png" alt="Logo">
+      </a>
+
+      <div class="nav-container">
+        <nav class="site-nav">
+          <ul>
+            <li><a href="synopsis.html">Synopsis</a></li>
+            <li><a href="bountyboard.html" id="bountyLink">Bounty Board</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+	  <section class="synopsis-container">
+		  <div class="synopsis-image2">
+			<img src="images/synopsis2.jpg" alt="Portrait">
+		  </div>
+		  <div class="synopsis-text">
+			<h1>The Story</h1>
+			<div class="paragraph-wrapper">
+			  <p id="synopsis-paragraph">
+				In a dystopian future, where the line between man and machine is blurred, Neon Outlaws follows a group of cybernetic rebels who fight against a corrupt corporate empire that controls the city. The story centers on Boone Marston, a once-ordinary man who has become an enhanced outlaw after a tragic accident left him with a robotic arm and a neurolink that alters his behavior. Alongside his companions—a skilled hacker, a fierce warrior, and a rogue AI—they embark on a dangerous mission to uncover the truth behind a global conspiracy that threatens to overthrow what’s left of humanity.
+
+				As they battle through neon-lit streets and high-tech fortresses, the Outlaws must confront their own inner demons while navigating a complex world of corporate espionage, government corruption, and artificial intelligence. With a mix of action, mystery, and a deep dive into the philosophical questions of identity, freedom, and technology, Neon Outlaws is a thrilling tale of survival, rebellion, and the fight for a better future.
+			  </p>
+			  <div class="gradient-overlay"></div>
+			</div>
+			<button id="read-more-btn">Read More</button>
+		  </div>
+	</section>
+
+  </section> 
+	
+<section class="characters-section">
+  <div class="characters-header-wrapper">
+    <div class="line"></div>
+    <h2 class="characters-header">Meet the Outlaws!</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="carousel-container">
+    <button class="carousel-btn left-btn">&#10094;</button>
+    <button class="carousel-btn right-btn">&#10095;</button>
+
+    <div class="carousel-track">
+      
+  <!-- Character Poster -->
+      <div class="wanted-poster">
+        <div class="poster-border" style="background-image: url('images/odin.jpeg');">
+          <h2 class="wanted-title">WANTED</h2>
+          <h3 class="character-name">Odin Reeve</h3>
+          <div class="poster-bottom">
+            <h4>Dead or Alive</h4>
+            <div class="poster-bottom-line"></div>
+            <button class="bounty-btn" onclick="openBountyDetails('odin')">View Bounty Details</button>
+          </div>
+        </div>
+      </div>
+		
+  <!-- Character Poster -->
+      <div class="wanted-poster">
+        <div class="poster-border" style="background-image: url('images/hacker.jpg');">
+          <h2 class="wanted-title">WANTED</h2>
+          <h3 class="character-name">The Hacker</h3>
+          <div class="poster-bottom">
+            <h4>Dead or Alive</h4>
+            <div class="poster-bottom-line"></div>
+            <button class="bounty-btn" onclick="openBountyDetails('hacker')">View Bounty Details</button>
+          </div>
+        </div>
+     

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bounty Board</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Afacad&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-bounty">
+	
+<script>
+window.onload = function() {
+  const isSubscribed = localStorage.getItem('subscribed');
+  
+  // If the user is not subscribed, redirect them to the subscription page or homepage
+  if (isSubscribed !== 'true') {
+    window.location.href = 'index.html'; // Redirect to index if not subscribed
+  }
+};
+
+</script>
+
+	
+  <section class="hero-bounty">
+    <header>
+      <a href="index.html" class="bookmark">
+        <img src="images/logo.png" alt="Logo">
+      </a>
+
+      <div class="nav-container">
+        <nav class="site-nav">
+          <ul>
+            <li><a href="synopsis.html">Synopsis</a></li>
+            <li><a href="bountyboard.html">Bounty Board</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </section>
+
+  <section class="bounty-board">
+    <div class="bounty-banner">
+      <h1>Bounty Board</h1>
+    </div>
+
+    <div class="board">
+      <!-- Note 1 -->
+      <div class="note">
+        <h2>Wanted: Boone Marston</h2>
+        <button class="show-more" onclick="openModal('modal1')">Show More</button>
+
+        <!-- Modal 1 -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>Boone Marston</h2>
+            <p>Boone Marston, a cybernetically enhanced outlaw, is considered extremely dangerous and highly unpredictable. 
+            With a state-of-the-art neurolink implant and a mechanical arm capable of breaching high-security vaults, Marston has led 
+            a string of sophisticated robberies across the Core Sectors. Last confirmed sighting was in Sector 9's undercity, 
+            where he outmaneuvered authorities with alarming speed. Approach with extreme caution; capture bounty: 150,000 credits alive.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Note 2 -->
+      <div class="note">
+        <h2>Missing Cargo Report</h2>
+        <button class="show-more" onclick="openModal('modal2')">Show More</button>
+
+        <!-- Modal 2 -->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>Official Cargo Loss Report - Case #3927-B</h2>
+            <p><strong>Date Filed:</strong> April 14, 2095<br>
+            <strong>Filed By:</strong> Captain Elys Vorn, Sector 7 Logistics Authority<br><br>
+            On April 13, 2095, at approximately 02:43 local time, an unauthorized breach occurred aboard Transport Vessel AX-9, 
+            en route from New Terra Port to Omega Exchange. The stolen cargo comprised classified tech modules, including 
+            encryption processors, kinetic dampeners, and experimental neurolink parts. Surveillance logs reveal unidentified 
+            hostiles using cloaking devices to bypass detection. No casualties reported; however, three security drones were dismantled. 
+            Estimated value of losses: 3.2 million credits. Investigation underway; Cipher Gang suspected. Immediate recovery operations 
+            authorized by the Central Coalition Security Council. Individuals with information leading to the retrieval of goods 
+            or capture of involved parties will receive up to 500,000 credits.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Note 3 -->
+      <div class="note">
+        <h2>Bounty: Cipher Gang</h2>
+        <button class="show-more" onclick="openModal('modal3')">Show More</button>
+
+        <!-- Modal 3 -->
+        <div id="modal3" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>The Cipher Gang</h2>
+            <p>The Cipher Gang is a shadowy collective specializing in digital warfare, corporate sabotage, and cyber-heists. 
+            Known for breaching high-security networks without leaving a trace, they have targeted government archives, private vaults, 
+            and interstellar banking systems. Their signature method involves siphoning data and assets while simultaneously 
+            launching deep-fake diversions. Core members are rumored to operate from a mobile command ship known only as 'The Ghost.' 
+            Current bounty for credible intelligence: 250,000 credits; for apprehension of gang leaders: 1 million credits. 
+            Priority alert status: Red. Public advised to report any unusual tech anomalies immediately.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="line-footer"></div>
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@neonoutlaws" class="social-icon">
+          <img src="images/tiktok.png" alt="TikTok" class="social-logo">
+        </a>
+        <a href="https://www.youtube.com/c/NeonOutlaws" class="social-icon">
+          <img src="images/yt.png" alt="YouTube" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/neonoutlaws" class="social-icon">
+          <img src="images/facebook.png" alt="Instagram" class="social-logo">
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-left">© 2025 Neon Outlaws Productions. All rights reserved.</p>
+        <p class="footer-right">For inquiries contact us at: 
+          <a href="mailto:contact@neonoutlaws.com" class="footer-email">contact@neonoutlaws.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Function to open the modal
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    // Close the modal if the user clicks outside the modal content
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+
+    // Function to check if the user is subscribed and unlock the bounty board
+    function checkSubscription() {
+      const isSubscribed = localStorage.getItem('subscribed'); // Check localStorage
+
+      // If subscribed, unlock the Bounty Board
+      if (isSubscribed === 'true') {
+        document.getElementById('bounty-board').style.display = 'block'; // Show Bounty Board
+      } else {
+        document.getElementById('bounty-board').style.display = 'none'; // Keep it hidden
+      }
+    }
+
+    // Check subscription when the page loads
+    window.onload = checkSubscription;
+
+    // Function to subscribe (for testing purposes)
+    function subscribe() {
+      localStorage.setItem('subscribed', 'true'); // Mark as subscribed
+      checkSubscription(); // Check and unlock the Bounty Board
+    }
+
+  </script>
+
+</body>
+</html>
