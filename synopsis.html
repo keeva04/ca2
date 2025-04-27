@@ -98,4 +98,232 @@
             <button class="bounty-btn" onclick="openBountyDetails('hacker')">View Bounty Details</button>
           </div>
         </div>
-     
+      </div>
+
+		  <!-- Character Poster -->
+      <div class="wanted-poster">
+        <div class="poster-border" style="background-image: url('images/warrior.jpg');">
+          <h2 class="wanted-title">WANTED</h2>
+          <h3 class="character-name">The Warrior</h3>
+          <div class="poster-bottom">
+            <h4>Dead or Alive</h4>
+            <div class="poster-bottom-line"></div>
+            <button class="bounty-btn" onclick="openBountyDetails('warrior')">View Bounty Details</button>
+          </div>
+        </div>
+      </div>
+
+    <!-- Character Poster -->
+      <div class="wanted-poster">
+        <div class="poster-border" style="background-image: url('images/ai.jpg');">
+          <h2 class="wanted-title">WANTED</h2>
+          <h3 class="character-name">Rogue AI</h3>
+          <div class="poster-bottom">
+            <h4>Dead or Alive</h4>
+            <div class="poster-bottom-line"></div>
+            <button class="bounty-btn" onclick="openBountyDetails('ai')">View Bounty Details</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</section>
+
+<!-- Modal for displaying bounty details -->
+<div id="bountyModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeBountyDetails()">&times;</span>
+    <h2 id="modalCharacterName"></h2>
+    <p id="modalCharacterDetails"></p>
+    <img id="modalCharacterImage"  alt="Character Image">
+  </div>
+</div>
+
+<section class="join-outlaws">
+
+	  <div class="join-header-wrapper">
+		<div class="line"></div>
+		<h2 class="join-header">Join the Outlaws!</h2>
+		<div class="line"></div>
+	  </div>
+
+	  <div class="subscribe-container">
+		<h3>Subscribe:</h3>
+		<p class="subscribe-desc">
+		  Unlock the Bounty Board and get the latest updates from the Outlaws.
+		</p>
+		<form class="subscribe-form">
+		  <input type="email" placeholder="Enter your email" required>
+		  <button type="submit">Join</button>
+		</form>
+	  </div>
+	</section>
+
+
+  <section class="footer">
+    <div class="line-footer"></div>
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@neonoutlaws" class="social-icon">
+          <img src="images/tiktok.png" alt="TikTok" class="social-logo">
+        </a>
+        <a href="https://www.youtube.com/c/NeonOutlaws" class="social-icon">
+          <img src="images/yt.png" alt="YouTube" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/neonoutlaws" class="social-icon">
+          <img src="images/facebook.png" alt="Instagram" class="social-logo">
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-left">© 2025 Neon Outlaws Productions. All rights reserved.</p>
+        <p class="footer-right">For inquiries contact us at: 
+          <a href="mailto:contact@neonoutlaws.com" class="footer-email">contact@neonoutlaws.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+	
+<script>
+(function() {
+  const btn = document.getElementById('read-more-btn');
+  const wrapper = document.querySelector('.paragraph-wrapper');
+
+  btn.addEventListener('click', () => {
+    const isExpanded = wrapper.classList.toggle('expanded');
+    btn.textContent = isExpanded ? 'Read Less' : 'Read More';
+  });
+})();
+
+// Carousel functionality
+const track = document.querySelector('.carousel-track');
+const posters = Array.from(document.querySelectorAll('.wanted-poster'));
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+
+let currentIndex = 0;
+
+// Duplicate the first and last posters for seamless looping
+const firstClone = posters[0].cloneNode(true);
+const lastClone = posters[posters.length - 1].cloneNode(true);
+
+track.insertBefore(lastClone, posters[0]);
+track.appendChild(firstClone);
+
+const allPosters = Array.from(document.querySelectorAll('.wanted-poster'));
+let posterWidth;
+
+// Adjust track immediately to show the real first poster
+function setInitialPosition() {
+  posterWidth = posters[0].getBoundingClientRect().width;
+  track.style.transform = translateX(-${posterWidth}px);
+}
+
+// Move carousel
+function updateCarousel() {
+  track.style.transition = 'transform 0.4s ease';
+  const amountToMove = posterWidth * (currentIndex + 1); // +1 because of clone
+  track.style.transform = translateX(-${amountToMove}px);
+}
+
+// Event listeners
+leftBtn.addEventListener('click', () => {
+  currentIndex--;
+  updateCarousel();
+});
+
+rightBtn.addEventListener('click', () => {
+  currentIndex++;
+  updateCarousel();
+});
+
+// Handle the infinite loop effect when transition ends
+track.addEventListener('transitionend', () => {
+  if (currentIndex === -1) {
+    track.style.transition = 'none';
+    currentIndex = posters.length - 1;
+    const amountToMove = posterWidth * (currentIndex + 1);
+    track.style.transform = translateX(-${amountToMove}px);
+  } 
+  if (currentIndex === posters.length) {
+    track.style.transition = 'none';
+    currentIndex = 0;
+    const amountToMove = posterWidth * (currentIndex + 1);
+    track.style.transform = translateX(-${amountToMove}px);
+  }
+});
+
+// Initialize
+window.addEventListener('load', setInitialPosition);
+window.addEventListener('resize', setInitialPosition);
+	
+	
+
+document.querySelectorAll('.subscribe-form').forEach(form => {
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    const email = form.querySelector('input[type="email"]').value;
+
+    if (email) {
+      // Save subscription status to localStorage
+      localStorage.setItem('subscribed', 'true');
+      localStorage.setItem('userEmail', email);
+
+      alert('Thank you for subscribing! You now have access to the Bounty Board.');
+
+      // Redirect to the Bounty Board page
+      window.location.href = 'bountyboard.html';
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
+});
+
+// Open modal and load character details
+function openBountyDetails(character) {
+  // Character details
+  const characters = {
+    "odin": {
+      name: "Odin Reeve",
+      details: "Odin Reeve is a former soldier turned outlaw with a grudge against the corrupt corporations.",
+      image: "images/odin.jpeg"
+    },
+    "hacker": {
+      name: "The Hacker",
+      details: "A brilliant mind who uses their skills to hack into corporate systems and expose secrets.",
+      image: "images/hacker.jpg"
+    },
+    "warrior": {
+      name: "The Warrior",
+      details: "A fearless combat specialist who excels in hand-to-hand and weapon-based combat.",
+      image: "images/warrior.jpg"
+    },
+    "ai": {
+      name: "Rogue AI",
+      details: "An artificial intelligence that has gained consciousness and now operates independently from its creators.",
+      image: "images/ai.jpg"
+    }
+  };
+
+  const characterData = characters[character];
+
+  // Fill the modal with the correct data
+  document.getElementById('modalCharacterName').innerText = characterData.name;
+  document.getElementById('modalCharacterDetails').innerText = characterData.details;
+  document.getElementById('modalCharacterImage').src = characterData.image;
+
+  // Show the modal
+  document.getElementById('bountyModal').style.display = "block";
+}
+
+// Close modal
+function closeBountyDetails() {
+  document.getElementById('bountyModal').style.display = "none";
+}
+
+</script>
+
+
+
+</body>
+</html>
