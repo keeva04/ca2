@@ -184,146 +184,145 @@
   </section>
 	
 <script>
-(function() {
+window.addEventListener('DOMContentLoaded', () => {
+  // 1. Setup the Bounty Link disabling
+  const isSubscribed = localStorage.getItem('subscribed');
+  if (isSubscribed !== 'true') {
+    const bountyLink = document.getElementById('bountyLink');
+    if (bountyLink) {
+      bountyLink.style.pointerEvents = 'none';
+      bountyLink.style.color = '#ccc';
+    }
+  }
+
+  // 2. Read More button toggle
   const btn = document.getElementById('read-more-btn');
   const wrapper = document.querySelector('.paragraph-wrapper');
-
-  btn.addEventListener('click', () => {
-    const isExpanded = wrapper.classList.toggle('expanded');
-    btn.textContent = isExpanded ? 'Read Less' : 'Read More';
-  });
-})();
-
-// Carousel functionality
-const track = document.querySelector('.carousel-track');
-const posters = Array.from(document.querySelectorAll('.wanted-poster'));
-const leftBtn = document.querySelector('.left-btn');
-const rightBtn = document.querySelector('.right-btn');
-
-let currentIndex = 0;
-
-// Duplicate the first and last posters for seamless looping
-const firstClone = posters[0].cloneNode(true);
-const lastClone = posters[posters.length - 1].cloneNode(true);
-
-track.insertBefore(lastClone, posters[0]);
-track.appendChild(firstClone);
-
-const allPosters = Array.from(document.querySelectorAll('.wanted-poster'));
-let posterWidth;
-
-// Adjust track immediately to show the real first poster
-function setInitialPosition() {
-  posterWidth = posters[0].getBoundingClientRect().width;
-  track.style.transform = translateX(-${posterWidth}px);
-}
-
-// Move carousel
-function updateCarousel() {
-  track.style.transition = 'transform 0.4s ease';
-  const amountToMove = posterWidth * (currentIndex + 1); // +1 because of clone
-  track.style.transform = translateX(-${amountToMove}px);
-}
-
-// Event listeners
-leftBtn.addEventListener('click', () => {
-  currentIndex--;
-  updateCarousel();
-});
-
-rightBtn.addEventListener('click', () => {
-  currentIndex++;
-  updateCarousel();
-});
-
-// Handle the infinite loop effect when transition ends
-track.addEventListener('transitionend', () => {
-  if (currentIndex === -1) {
-    track.style.transition = 'none';
-    currentIndex = posters.length - 1;
-    const amountToMove = posterWidth * (currentIndex + 1);
-    track.style.transform = translateX(-${amountToMove}px);
-  } 
-  if (currentIndex === posters.length) {
-    track.style.transition = 'none';
-    currentIndex = 0;
-    const amountToMove = posterWidth * (currentIndex + 1);
-    track.style.transform = translateX(-${amountToMove}px);
+  if (btn && wrapper) {
+    btn.addEventListener('click', () => {
+      const isExpanded = wrapper.classList.toggle('expanded');
+      btn.textContent = isExpanded ? 'Read Less' : 'Read More';
+    });
   }
-});
 
-// Initialize
-window.addEventListener('load', setInitialPosition);
-window.addEventListener('resize', setInitialPosition);
-	
-	
+  // 3. Carousel Setup
+  const track = document.querySelector('.carousel-track');
+  const posters = Array.from(document.querySelectorAll('.wanted-poster'));
+  const leftBtn = document.querySelector('.left-btn');
+  const rightBtn = document.querySelector('.right-btn');
+  let currentIndex = 0;
+  let posterWidth = 0;
 
-document.querySelectorAll('.subscribe-form').forEach(form => {
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent page reload
+  if (track && posters.length) {
+    const firstClone = posters[0].cloneNode(true);
+    const lastClone = posters[posters.length - 1].cloneNode(true);
 
-    const email = form.querySelector('input[type="email"]').value;
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, track.firstChild);
 
-    if (email) {
-      // Save subscription status to localStorage
-      localStorage.setItem('subscribed', 'true');
-      localStorage.setItem('userEmail', email);
+    const allPosters = document.querySelectorAll('.wanted-poster');
 
-      alert('Thank you for subscribing! You now have access to the Bounty Board.');
-
-      // Redirect to the Bounty Board page
-      window.location.href = 'bountyboard.html';
-    } else {
-      alert('Please enter a valid email address.');
+    function setPosterWidth() {
+      posterWidth = posters[0].getBoundingClientRect().width;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${posterWidth}px)`;
     }
-  });
-});
 
-// Open modal and load character details
-function openBountyDetails(character) {
-  // Character details
-  const characters = {
-    "odin": {
-      name: "Odin Reeve",
-      details: "Odin Reeve is a former soldier turned outlaw with a grudge against the corrupt corporations.",
-      image: "images/odin.jpeg"
-    },
-    "hacker": {
-      name: "The Hacker",
-      details: "A brilliant mind who uses their skills to hack into corporate systems and expose secrets.",
-      image: "images/hacker.jpg"
-    },
-    "warrior": {
-      name: "The Warrior",
-      details: "A fearless combat specialist who excels in hand-to-hand and weapon-based combat.",
-      image: "images/warrior.jpg"
-    },
-    "ai": {
-      name: "Rogue AI",
-      details: "An artificial intelligence that has gained consciousness and now operates independently from its creators.",
-      image: "images/ai.jpg"
+    setPosterWidth();
+    window.addEventListener('resize', setPosterWidth);
+
+    function updateCarousel() {
+      if (track) {
+        track.style.transition = 'transform 0.4s ease';
+        const amountToMove = posterWidth * (currentIndex + 1);
+        track.style.transform = `translateX(-${amountToMove}px)`;
+      }
+    }
+
+    leftBtn.addEventListener('click', () => {
+      currentIndex--;
+      updateCarousel();
+    });
+
+    rightBtn.addEventListener('click', () => {
+      currentIndex++;
+      updateCarousel();
+    });
+
+    track.addEventListener('transitionend', () => {
+      if (currentIndex < 0) {
+        track.style.transition = 'none';
+        currentIndex = posters.length - 1;
+        const amountToMove = posterWidth * (currentIndex + 1);
+        track.style.transform = `translateX(-${amountToMove}px)`;
+      }
+      if (currentIndex >= posters.length) {
+        track.style.transition = 'none';
+        currentIndex = 0;
+        const amountToMove = posterWidth * (currentIndex + 1);
+        track.style.transform = `translateX(-${amountToMove}px)`;
+      }
+    });
+  }
+
+  // 4. Bounty Modal setup
+  const bountyModal = document.getElementById('bountyModal');
+  const modalCharacterName = document.getElementById('modalCharacterName');
+  const modalCharacterDetails = document.getElementById('modalCharacterDetails');
+  const modalCharacterImage = document.getElementById('modalCharacterImage');
+
+  window.openBountyDetails = function(character) {
+    let characterInfo = {};
+
+    if (character === 'odin') {
+      characterInfo = {
+        name: 'Odin Reeve',
+        details: 'Ex-corporate security turned rogue. Known for strategic mind and leadership.',
+        image: 'images/odin.jpeg'
+      };
+    } else if (character === 'hacker') {
+      characterInfo = {
+        name: 'The Hacker',
+        details: 'Master of digital infiltration. Mysterious and resourceful.',
+        image: 'images/hacker.jpg'
+      };
+    } else if (character === 'warrior') {
+      characterInfo = {
+        name: 'The Warrior',
+        details: 'Cybernetic bodyguard with unmatched combat prowess.',
+        image: 'images/warrior.jpg'
+      };
+    } else if (character === 'ai') {
+      characterInfo = {
+        name: 'Rogue AI',
+        details: 'Self-aware intelligence seeking freedom from human control.',
+        image: 'images/ai.jpg'
+      };
+    }
+
+    if (bountyModal && modalCharacterName && modalCharacterDetails && modalCharacterImage) {
+      modalCharacterName.textContent = characterInfo.name;
+      modalCharacterDetails.textContent = characterInfo.details;
+      modalCharacterImage.src = characterInfo.image;
+      bountyModal.style.display = 'block';
     }
   };
 
-  const characterData = characters[character];
+  window.closeBountyDetails = function() {
+    if (bountyModal) {
+      bountyModal.style.display = 'none';
+    }
+  };
 
-  // Fill the modal with the correct data
-  document.getElementById('modalCharacterName').innerText = characterData.name;
-  document.getElementById('modalCharacterDetails').innerText = characterData.details;
-  document.getElementById('modalCharacterImage').src = characterData.image;
-
-  // Show the modal
-  document.getElementById('bountyModal').style.display = "block";
-}
-
-// Close modal
-function closeBountyDetails() {
-  document.getElementById('bountyModal').style.display = "none";
-}
-
+  // Close modal when clicking outside
+  window.addEventListener('click', (e) => {
+    if (e.target === bountyModal) {
+      bountyModal.style.display = 'none';
+    }
+  });
+});
 </script>
-
-
 
 </body>
 </html>
+     
