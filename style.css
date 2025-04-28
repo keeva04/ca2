@@ -24,8 +24,8 @@ html, body {
 h1 {
   font-family: 'Unlock', serif;
   font-size: 7rem;
-  color: #000; /* Base color for contrast */
-  -webkit-text-stroke: 1px #3CE8FF; /* Stroke color */
+  color: #000; 
+  -webkit-text-stroke: 1px #3CE8FF;
   text-shadow:
     0 0 5px #3CE8FF,
     0 0 10px #3CE8FF,
@@ -160,7 +160,7 @@ h1 {
   text-transform: uppercase;
   border-radius: 5px;
   transition: background 0.3s ease, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* drop shadow added */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* drop shadow */
 }
 
 
@@ -209,7 +209,7 @@ h1 {
   margin: 0;
 }
 
-/* Subscribe Box Styled Like a Ticket */
+/* Subscribe Box */
 .subscribe-container {
   background-color: #1E1E24;
   width: 520px;
@@ -448,7 +448,7 @@ h1 {
 
 .line-footer {
   height: 4px; /* Thickness of the line */
-  background-color: #FF3CC7; /* Line color */
+  background-color: #FF3CC7; 
   margin-bottom: 20px; /* Space between the line and the content */
 }
 
@@ -464,8 +464,8 @@ h1 {
 }
 
 .social-logo {
-  width: 70px; /* Larger size for the logos */
-  height: 70px; /* Larger size for the logos */
+  width: 70px;
+  height: 70px; 
   object-fit: contain;
 }
 
@@ -484,11 +484,11 @@ h1 {
 .footer-left, .footer-right {
   color: white;
   font-family: 'Russo One', sans-serif;
-  font-size: 14px; /* You can adjust the font size if necessary */
+  font-size: 14px; 
 }
 
 .footer-email {
-  color: #FF3CC7; /* Color for the email link */
+  color: #FF3CC7; 
   text-decoration: none;
 }
 
@@ -515,7 +515,7 @@ h1 {
 .hero-synopsis {
    height: 100vh;
   
-  background: linear-gradient(to bottom, #1E1E24, #ED38B9); /* New gradient */
+  background: linear-gradient(to bottom, #1E1E24, #ED38B9); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -577,7 +577,7 @@ h1 {
     0 0 5px #ED38B9,
     0 0 5px #ED38B9,
     0 0 5px #ED38B9;
-  -webkit-text-stroke: 1px #ED38B9; /* Stroke color */
+  -webkit-text-stroke: 1px #ED38B9;
 }
 
 .paragraph-wrapper {
@@ -613,14 +613,14 @@ h1 {
 }
 
 #read-more-btn {
-  background: none;           /* no fill */
-  border: none;               /* remove default border */
-  border-top: 2px solid #fff; /* white line above */
-  color: #fff;                /* white text */
+  background: none;           
+  border: none;               
+  border-top: 2px solid #fff; 
+  color: #fff;               
   font-family: 'Russo One', sans-serif;
   font-size: 1rem;
-  padding: 0.6rem 1.2rem;     /* keeps the click area */
-  margin-top: 1rem;           /* space from the paragraph */
+  padding: 0.6rem 1.2rem;     
+  margin-top: 1rem;         
   cursor: pointer;
 }
 
@@ -643,16 +643,16 @@ h1 {
   text-align: center;
   color: white;
   font-family: 'Afacad', sans-serif;
-  overflow-x: visible;  /* Change from hidden to visible */
-  overflow-y: visible;  /* Ensure vertical overflow is also visible */
+  overflow-x: visible;  
+  overflow-y: visible;  
   position: relative;
   z-index: 1;
 }
 
 .characters-header h2 {
   font-family: 'Russo One', sans-serif;
-  font-size: 3.5rem; /* Increased font size */
-  margin-bottom: 50px; /* Increased margin */
+  font-size: 3.5rem; 
+  margin-bottom: 50px; 
   color: #1E1E24;
 }
 
@@ -660,19 +660,19 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px; /* Increased margin */
+  margin-bottom: 50px; 
 }
 
 .characters-header {
   font-family: 'Russo One', sans-serif;
-  font-size: 4rem; /* Increased font size */
-  margin: 0 30px; /* Increased spacing */
+  font-size: 4rem; 
+  margin: 0 30px; 
   color: #1E1E24;
 }
 
 .line {
   flex: 1;
-  height: 20px; /* Taller line */
+  height: 20px; 
   background: transparent;
   border-top: 6px solid #1E1E24;
   border-bottom: 6px solid #1E1E24;
@@ -680,7 +680,7 @@ h1 {
 
 .carousel-container {
   position: relative;
-  overflow: visible; /* Change from hidden to visible */
+  overflow: visible; 
   width: 520px;
   margin: 0 auto;
 }
@@ -745,8 +745,7 @@ h1 {
 
 .character-name {
   font-family: 'Unlock', serif;
-  font-size: 2.7rem; /* Adjust the size as necessary */
-  color: #000;
+  font-size: 2.7rem; 
   -webkit-text-stroke: 1px #3CE8FF;
   text-shadow:
     0 0 5px #3CE8FF,
@@ -754,11 +753,11 @@ h1 {
     0 0 10px #3CE8FF,
     0 0 10px #3CE8FF;
   position: absolute;
-  top: 330px; /* Adjust the vertical position as necessary */
+  top: 330px; 
   left: 50%;
   transform: translateX(-50%);
-  white-space: nowrap; /* Prevents the text from wrapping */
-  text-overflow: ellipsis; /* Optional: Adds ellipsis for overflowing text */
+  white-space: nowrap; 
+  text-overflow: ellipsis; /*  Adds ellipsis for overflowing text */
   z-index: 10;
 }
 
@@ -844,8 +843,8 @@ h1 {
 
 .join-outlaws {
   margin-top: 0;
-  padding-top: 40px; /* optional, but not too big */
-  background-color: #000; /* to match nicely */
+  padding-top: 40px; 
+  background-color: #000; 
 }
 
 
@@ -868,7 +867,7 @@ h1 {
 /* Bounty Board page: Gradient background */
 .hero-bounty {
    height: 20vh;
-   background: linear-gradient(to bottom, #ED38B9, #1E1E24); /* New gradient */
+   background: linear-gradient(to bottom, #ED38B9, #1E1E24); 
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
@@ -884,30 +883,30 @@ h1 {
   background-color: #1E1E24;
   padding: 60px 20px;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Add shadow around the board */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); 
 	
 }
 
 .bounty-banner h1 {
   font-family: 'Russo One', sans-serif;
-  font-size: 72px; /* Increased font size for a bolder title */
+  font-size: 72px; 
   color: #62EDFF;
   margin-bottom: 50px;
-  text-shadow: 2px 2px 8px #000, 0 0 15px #62EDFF; /* Adding more depth with a glowing effect */
-  padding: 20px; /* Padding to give it more space around the title */
-  -webkit-background-clip: text; /* Clip background to text for the gradient effect */
+  text-shadow: 2px 2px 8px #000, 0 0 15px #62EDFF; 
+  padding: 20px; 
+  -webkit-background-clip: text; 
   background-clip: text;
-  text-align: center; /* Center the title */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Add shadow behind the header for depth */
-  letter-spacing: 2px; /* Slightly increased letter spacing for elegance */
-  text-transform: uppercase; /* Capitalize the title for emphasis */
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
 }
 
 
 .board {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly; /* Adjusting for even spacing */
+  justify-content: space-evenly; 
   gap: 30px;
 	
 }
@@ -915,12 +914,12 @@ h1 {
 .note {
   background: #2B2B33;
   border: 3px dashed #62EDFF;
-  width: 45%; /* Adjust the width to 45% to fit two notes per row */
-  padding: 30px; /* Make the padding bigger for larger notes */
+  width: 45%; 
+  padding: 30px; 
   border-radius: 10px;
   position: relative;
   font-family: 'Afacad', sans-serif;
-  min-width: 300px; /* Ensure minimum size for smaller screens */
+  min-width: 300px; 
   box-shadow:
     0 0 10px #3CE8FF,
     0 0 20px #3CE8FF,
@@ -941,7 +940,7 @@ h1 {
 }
 
 .note h2 {
-  font-size: 24px; /* Increase the title font size */
+  font-size: 24px; 
   margin-bottom: 20px;
   color: #fff;
 }
@@ -950,7 +949,7 @@ h1 {
 
 /* Modal background */
 .modal {
-  display: none; /* Hidden by default */
+  display: none; 
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -1031,7 +1030,7 @@ h1 {
 
 .hero-gallery {
    height: 10vh;
-   background: linear-gradient(to bottom, #1E1E24, #1E1E24); /* New gradient */
+   background: linear-gradient(to bottom, #1E1E24, #1E1E24); 
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
@@ -1091,18 +1090,18 @@ max-width: calc(33.333% - 1rem);
 
 /* Styling for the Show More / Show Less buttons */
 .show-more-btn {
-  background: none;           /* no fill */
-  border: none;               /* remove default border */
-  border-top: 2px solid #fff; /* white line above */
-  color: #fff;                /* white text */
+  background: none;          
+  border: none;             
+  border-top: 2px solid #fff;
+  color: #fff;            
   font-family: 'Russo One', sans-serif;
   font-size: 1rem;
-  padding: 0.6rem 1.2rem;     /* keeps the click area */
-  margin-top: 1rem;           /* space from the image grid */
+  padding: 0.6rem 1.2rem;     
+  margin-top: 1rem;       
   cursor: pointer;
 }
 
-/* Optional: remove any hover background */
+/* remove any hover background */
 .show-more-btn:hover,
 .show-more-btn:focus {
   background: none;
@@ -1299,7 +1298,7 @@ max-width: calc(33.333% - 1rem);
 
 /* New added: media query for smaller screens */
 @media screen and (max-width: 768px) {
-   /* Adjust layout for small screens */
+  
    .hero-synopsis {
      padding: 0 20px;
    }
@@ -1325,7 +1324,7 @@ max-width: calc(33.333% - 1rem);
      text-align: center;
    }
 
-   /* Button styles */
+
    #read-more-btn {
      font-size: 1rem;
    }
@@ -1352,12 +1351,12 @@ max-width: calc(33.333% - 1rem);
      text-align: center;
    }
 
-   /* Adjust button for small screens */
+ 
    #read-more-btn {
      font-size: 0.9rem;
    }
 
-   /* Carousel adjustments for small screens */
+ 
    .carousel-container {
      padding: 1rem;
    }
