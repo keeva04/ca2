@@ -41,6 +41,7 @@
         </nav>
       </div>
     </header>
+
 	  <section class="synopsis-container">
 		  <div class="synopsis-image2">
 			<img src="images/synopsis2.jpg" alt="Portrait">
@@ -157,10 +158,8 @@
 		  <button type="submit">Join</button>
 		</form>
 	  </div>
-	</section>
-
-
-  <section class="footer">
+</section>
+<section class="footer">
     <div class="line-footer"></div>
     <div class="footer-content">
       <div class="social-icons">
@@ -184,8 +183,9 @@
   </section>
 	
 <script>
+	
 window.addEventListener('DOMContentLoaded', () => {
-  // 1. Setup the Bounty Link disabling
+  // Setup the Bounty Link disabling
   const isSubscribed = localStorage.getItem('subscribed');
   if (isSubscribed !== 'true') {
     const bountyLink = document.getElementById('bountyLink');
@@ -195,7 +195,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 2. Read More button toggle
+  //  Read More button toggle
   const btn = document.getElementById('read-more-btn');
   const wrapper = document.querySelector('.paragraph-wrapper');
   if (btn && wrapper) {
@@ -205,7 +205,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Carousel Setup
+  // Carousel Setup
   const track = document.querySelector('.carousel-track');
   const posters = Array.from(document.querySelectorAll('.wanted-poster'));
   const leftBtn = document.querySelector('.left-btn');
@@ -265,7 +265,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Bounty Modal setup
+  // Bounty Modal setup
   const bountyModal = document.getElementById('bountyModal');
   const modalCharacterName = document.getElementById('modalCharacterName');
   const modalCharacterDetails = document.getElementById('modalCharacterDetails');
