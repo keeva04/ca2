@@ -126,23 +126,23 @@
 
   <!-- JavaScript -->
   <script>
-    // Listen for form submission
+    //  for form submission
     document.querySelectorAll('.subscribe-form').forEach(form => {
       form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent page reload
 
-        // Get the email value (optional)
+        // Get the email value 
 	document.querySelectorAll('.subscribe-form').forEach(form => {
 	  form.addEventListener('submit', function(event) {
-		event.preventDefault(); // Prevent page reload
+		event.preventDefault(); 
 	document.querySelectorAll('.subscribe-form').forEach(form => {
 	  form.addEventListener('submit', function(event) {
-		event.preventDefault(); // Prevent page reload
+		event.preventDefault(); 
 
     const email = form.querySelector('input[type="email"]').value;
 
     if (email) {
-      // Save subscription status to localStorage
+      // Save subscription status too localStorage
       localStorage.setItem('subscribed', 'true');
       localStorage.setItem('userEmail', email);
 
@@ -169,12 +169,12 @@ document.querySelectorAll('.subscribe-form').forEach(form => {
         alert('Thank you for subscribing! You now have access to the Bounty Board.');
 
         // Redirect to the Bounty Board page or show it if on the same page
-        window.location.href = 'bountyboard.html'; // or location.reload(); if on the same page
+        window.location.href = 'bountyboard.html'; 
       } else {
         alert('Please enter a valid email address.');
       }
     });
-  }); event.preventDefault(); // Prevent page reload
+  }); event.preventDefault(); 
 
     const email = form.querySelector('input[type="email"]').value;
 
@@ -199,13 +199,11 @@ document.querySelectorAll('.subscribe-form').forEach(form => {
           // Save subscription status to localStorage
           localStorage.setItem('subscribed', 'true');
           
-          // Optionally save the email
+
           localStorage.setItem('userEmail', email);
 
-          // Inform the user
           alert('Thank you for subscribing! You now have access to the Bounty Board.');
 
-          // Redirect to the Bounty Board page
           window.location.href = 'bountyboard.html';
         } else {
           alert('Please enter a valid email address.');
