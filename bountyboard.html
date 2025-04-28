@@ -16,7 +16,7 @@
 window.onload = function() {
   const isSubscribed = localStorage.getItem('subscribed');
   
-  // If the user is not subscribed, redirect them to the subscription page or homepage
+  // If user is not subscribed, redirect them to the subscription page or homepage
   if (isSubscribed !== 'true') {
     window.location.href = 'index.html'; // Redirect to index if not subscribed
   }
@@ -137,17 +137,17 @@ window.onload = function() {
   </section>
 
   <script>
-    // Function to open the modal
+    //to open the modal
     function openModal(id) {
       document.getElementById(id).style.display = "block";
     }
 
-    // Function to close the modal
+    //to close the modal
     function closeModal(id) {
       document.getElementById(id).style.display = "none";
     }
 
-    // Close the modal if the user clicks outside the modal content
+    // Close modal if the user clicks outside the modal content
     window.onclick = function(event) {
       const modals = document.querySelectorAll('.modal');
       modals.forEach(modal => {
@@ -157,7 +157,7 @@ window.onload = function() {
       });
     }
 
-    // Function to check if the user is subscribed and unlock the bounty board
+    // Check if the user is subscribed and unlock the bounty board
     function checkSubscription() {
       const isSubscribed = localStorage.getItem('subscribed'); // Check localStorage
 
@@ -172,7 +172,7 @@ window.onload = function() {
     // Check subscription when the page loads
     window.onload = checkSubscription;
 
-    // Function to subscribe (for testing purposes)
+
     function subscribe() {
       localStorage.setItem('subscribed', 'true'); // Mark as subscribed
       checkSubscription(); // Check and unlock the Bounty Board
